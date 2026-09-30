@@ -1,0 +1,7 @@
+{% doc %}
+Renders product options as buttons or dropdowns.
+@param {product} product - Current product.
+@param {string} section_id - Parent section ID.
+@param {string} [picker_type] - buttons or dropdown.
+{% enddoc %}
+{% unless product.has_only_default_variant %}<div class="variant-picker" data-variant-picker>{% for option in product.options_with_values %}<fieldset class="variant-picker__group" data-option-position="{{ option.position }}"><legend>{{ option.name }}: <strong data-selected-option>{{ option.selected_value }}</strong></legend>{% if picker_type == 'dropdown' %}<select data-option-select aria-label="{{ option.name }}">{% for value in option.values %}<option value="{{ value | escape }}" {% if value.selected %}selected{% endif %} {% unless value.available %}disabled{% endunless %}>{{ value }}</option>{% endfor %}</select>{% else %}<div class="variant-picker__values">{% for value in option.values %}<label><input type="radio" name="Option-{{ section_id }}-{{ option.position }}" value="{{ value | escape }}" {% if value.selected %}checked{% endif %} {% unless value.available %}disabled{% endunless %}><span>{{ value }}</span></label>{% endfor %}</div>{% endif %}</fieldset>{% endfor %}</div>{% endunless %}

@@ -1,0 +1,8 @@
+{% doc %}
+Renders live-updating product price information.
+@param {product} product - Current product.
+@param {boolean} [show_tax_notice] - Shows tax and shipping notice.
+{% enddoc %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+<div class="product-price" data-product-price><span class="product-price__current" data-price>{{ current_variant.price | money }}</span><s data-compare-price {% unless current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s><span class="product-price__badge" data-sale-badge {% unless current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>{{ 'products.product.on_sale' | t }}</span></div>
+{% if show_tax_notice %}<p class="product-tax muted">{{ 'products.product.tax_notice' | t }}</p>{% endif %}

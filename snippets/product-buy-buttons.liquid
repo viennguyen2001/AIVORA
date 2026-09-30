@@ -1,0 +1,8 @@
+{% doc %}
+Renders add-to-cart and optional accelerated checkout controls.
+@param {product} product - Current product.
+@param {boolean} [show_dynamic_checkout] - Shows accelerated checkout.
+@param {object} form - Current product form object.
+{% enddoc %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+<div class="product-buy" data-product-buy><button class="button product-buy__submit" type="submit" name="add" data-add-to-cart data-available-label="{{ 'products.product.add_to_cart' | t }}" data-sold-label="{{ 'products.product.sold_out' | t }}" {% unless current_variant.available %}disabled{% endunless %}><span data-add-label>{% if current_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}</span></button>{% if show_dynamic_checkout %}{{ form | payment_button }}{% endif %}</div>

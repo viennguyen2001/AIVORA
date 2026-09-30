@@ -1,6 +1,30 @@
 {
-  "sections":{"announcement":{"name":"Thanh thông báo"},"header":{"name":"Đầu trang","menu":"Menu"},"footer":{"name":"Chân trang","business_details":"Thông tin doanh nghiệp","newsletter_heading":"Tiêu đề bản tin","benefit":"Lợi ích dịch vụ","menu_block":"Cột menu"},"hero":{"name":"Carousel hero","autoplay":"Tự động chạy slide","speed":"Thời gian đổi slide","slide":"Slide"},"paths":{"name":"Nhóm danh mục","category":"Thẻ danh mục","fallback":"Ảnh dự phòng","feature_1":"Tính năng một","feature_2":"Tính năng hai"},"benefits":{"name":"Thanh lợi ích","benefit":"Lợi ích"},"collection_tabs":{"name":"Tab bộ sưu tập","tab":"Tab bộ sưu tập"},"featured_collection":{"products_to_show":"Số sản phẩm hiển thị","show_vendor":"Hiện nhà cung cấp"},"editorial":{"name":"Nội dung chia cột","pullquote":"Câu trích dẫn"},"image_text":{"name":"Ảnh và nội dung"},"faq":{"name":"FAQ và liên hệ","show_contact":"Hiện biểu mẫu liên hệ","contact_heading":"Tiêu đề liên hệ","contact_text":"Nội dung liên hệ","question":"Câu hỏi","question_label":"Câu hỏi","answer":"Câu trả lời"},"main_product":{"name":"Sản phẩm chính","dynamic_checkout":"Hiện thanh toán nhanh","assurance":"Cam kết"},"main_collection":{"name":"Bộ sưu tập chính","products_per_page":"Sản phẩm mỗi trang"},"main_page":{"name":"Trang chính"},"main_cart":{"name":"Giỏ hàng chính"}},
-  "labels":{"text":"Nội dung","link":"Liên kết","heading":"Tiêu đề","image":"Hình ảnh","mobile_image":"Ảnh di động","eyebrow":"Nhãn nhỏ","button_label":"Nhãn nút","button_link":"Liên kết nút","menu":"Menu","label":"Nhãn","collection":"Bộ sưu tập","layout":"Bố cục"},
-  "options":{"image_first":"Ảnh trước","text_first":"Nội dung trước"},
-  "settings_schema":{"brand":{"name":"Thương hiệu","logo":"Logo","logo_width":"Chiều rộng logo"},"colors":{"name":"Design system · màu sắc","canvas":"Nền chính","surface":"Bề mặt","ink":"Chữ chính","muted":"Chữ phụ","line":"Đường viền","accent":"Điểm nhấn","on_accent":"Chữ trên màu nhấn"},"layout":{"name":"Design system · bố cục","page_width":"Chiều rộng trang","section_spacing":"Khoảng cách section","card_radius":"Bo góc thẻ","control_radius":"Bo góc điều khiển"},"social":{"name":"Mạng xã hội"}}
+  "sections":{
+    "announcement":{"name":"Announcement bar"},
+    "header":{"name":"Header","menu":"Menu"},
+    "footer":{"name":"Footer","business_details":"Business details","newsletter_heading":"Newsletter heading","benefit":"Service benefit","menu_block":"Menu column"},
+    "hero":{"name":"Hero carousel","autoplay":"Auto-rotate slides","speed":"Change slides every","slide":"Slide"},
+    "paths":{"name":"Category paths","category":"Category card","fallback":"Fallback image","feature_1":"Feature one","feature_2":"Feature two"},
+    "benefits":{"name":"Benefit strip","benefit":"Benefit"},
+    "collection_tabs":{"name":"Collection tabs","tab":"Collection tab"},
+    "featured_collection":{"products_to_show":"Products to show","show_vendor":"Show vendor"},
+    "editorial":{"name":"Editorial split","pullquote":"Pull quote"},
+    "image_text":{"name":"Image with text"},
+    "faq":{"name":"FAQ and contact","show_contact":"Show contact form","contact_heading":"Contact heading","contact_text":"Contact text","question":"Question","question_label":"Question","answer":"Answer"},
+    "main_product":{"name":"Main product","gallery_width":"Gallery width","media_fit":"Media fit","enable_zoom":"Enable image zoom","show_tax_notice":"Show tax notice","description_words":"Description length","picker_type":"Picker type","show_inventory_quantity":"Show inventory quantity","low_inventory_threshold":"Low inventory threshold","dynamic_checkout":"Show dynamic checkout","item_1":"Item one","item_1_detail":"Item one detail","item_2":"Item two","item_2_detail":"Item two detail","item_3":"Item three","item_3_detail":"Item three detail","open_by_default":"Open by default","blocks":{"vendor":"Vendor","title":"Title","rating":"Rating","price":"Price","sku":"SKU","description":"Short description","variant_picker":"Variant picker","inventory":"Inventory status","quantity":"Quantity selector","buy_buttons":"Buy buttons","icon_list":"Trust list","collapsible_tab":"Collapsible tab","share":"Share","custom_liquid":"Custom Liquid","divider":"Divider","spacer":"Spacer"}},
+    "main_collection":{"name":"Main collection","products_per_page":"Products per page"},
+    "main_page":{"name":"Main page"},
+    "main_cart":{"name":"Main cart"},
+    "product_highlights":{"name":"Product highlights","block":"Highlight"},
+    "product_media_story":{"name":"Product media story"},
+    "product_specs":{"name":"Product specifications","download_label":"Download label","download_url":"Download link","row":"Specification row","group":"Group"},
+    "product_comparison":{"name":"Product comparison","feature_label":"Feature heading","primary_label":"Primary column heading","secondary_label":"Secondary column heading","row":"Comparison row","primary_value":"Primary value","secondary_value":"Secondary value"},
+    "product_use_cases":{"name":"Product use cases","block":"Use case"},
+    "product_testimonials":{"name":"Product testimonials","count_text":"Review count text","block":"Testimonial","quote":"Quote","author":"Author","detail":"Author detail"},
+    "product_recommendations":{"name":"Product recommendations","intent":"Recommendation intent"},
+    "product_description":{"name":"Product description"}
+  },
+  "labels":{"text":"Text","link":"Link","heading":"Heading","image":"Image","mobile_image":"Mobile image","eyebrow":"Eyebrow","button_label":"Button label","button_link":"Button link","menu":"Menu","label":"Label","collection":"Collection","layout":"Layout","page":"Page","custom_liquid":"Custom Liquid","spacing":"Spacing","columns":"Columns","surface":"Surface","video":"Video","autoplay":"Autoplay","value":"Value","feature":"Feature","rating":"Rating"},
+  "options":{"image_first":"Image first","text_first":"Text first","large":"Large","medium":"Medium","contain":"Contain","cover":"Cover","buttons":"Buttons","dropdown":"Dropdown","canvas":"Canvas","quiet":"Quiet surface","related":"Related","complementary":"Complementary"},
+  "settings_schema":{"brand":{"name":"Brand","logo":"Logo","logo_width":"Logo width"},"colors":{"name":"Design system · colors","canvas":"Canvas","surface":"Surface","ink":"Primary text","muted":"Secondary text","line":"Borders","accent":"Accent","on_accent":"Text on accent"},"layout":{"name":"Design system · layout","page_width":"Page width","section_spacing":"Section spacing","card_radius":"Card radius","control_radius":"Control radius"},"social":{"name":"Social media"}}
 }

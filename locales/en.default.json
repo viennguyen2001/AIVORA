@@ -3,7 +3,7 @@
   "general": {"pagination":{"page":"Page {{ number }}"},"search":{"search":"Search"},"continue_shopping":"Continue shopping"},
   "newsletter": {"label":"Email address","button_label":"Subscribe"},
   "onboarding": {"product_title":"Example product"},
-  "products": {"product":{"choose_options":"Choose options","quantity":{"label":"Quantity"},"add_to_cart":"Add to cart","sold_out":"Sold out"},"facets":{"product_count_simple":"products","sort_by_label":"Sort by"}},
+  "products": {"product":{"choose_options":"Choose options","quantity":{"label":"Quantity","decrease":"Decrease quantity","increase":"Increase quantity"},"add_to_cart":"Add to cart","sold_out":"Sold out","on_sale":"Sale","tax_notice":"Taxes included. Shipping calculated at checkout.","sku":"SKU","in_stock":"In stock","units_left":"{{ count }} units left","copy_link":"Copy link","rating_info":"Rated {{ rating }} out of {{ scale }}","no_reviews":"No reviews yet","media":{"open_image":"Open image {{ index }}","gallery":"Product media gallery","load_image":"Load image {{ index }}"}},"facets":{"product_count_simple":"products","sort_by_label":"Sort by"}},
   "templates": {"cart":{"cart":"Cart"},"contact":{"form":{"name":"Name","email":"Email","comment":"Message","send":"Send message"}}},
   "sections": {
     "announcement":{"name":"Announcement bar","label":"Announcement"},
@@ -23,8 +23,8 @@
     "main_cart":{"name":"Main cart"},
     "cart":{"empty":"Your cart is empty.","remove_title":"Remove {{ title }}","subtotal":"Subtotal","update":"Update cart","checkout":"Checkout"}
   },
-  "labels": {"text":"Text","link":"Link","heading":"Heading","image":"Image","mobile_image":"Mobile image","eyebrow":"Eyebrow","button_label":"Button label","button_link":"Button link","menu":"Menu","label":"Label","collection":"Collection","layout":"Layout"},
-  "options": {"image_first":"Image first","text_first":"Text first"},
+  "labels": {"text":"Text","link":"Link","heading":"Heading","image":"Image","mobile_image":"Mobile image","eyebrow":"Eyebrow","button_label":"Button label","button_link":"Button link","menu":"Menu","label":"Label","collection":"Collection","layout":"Layout","page":"Page","custom_liquid":"Custom Liquid","spacing":"Spacing","columns":"Columns","surface":"Surface","video":"Video","autoplay":"Autoplay","value":"Value","feature":"Feature","rating":"Rating"},
+  "options": {"image_first":"Image first","text_first":"Text first","large":"Large","medium":"Medium","contain":"Contain","cover":"Cover","buttons":"Buttons","dropdown":"Dropdown","canvas":"Canvas","quiet":"Quiet surface","related":"Related","complementary":"Complementary"},
   "settings_schema": {
     "brand":{"name":"Brand","logo":"Logo","logo_width":"Logo width"},
     "colors":{"name":"Design system · colors","canvas":"Canvas","surface":"Surface","ink":"Primary text","muted":"Secondary text","line":"Borders","accent":"Accent","on_accent":"Text on accent"},

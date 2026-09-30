@@ -24,6 +24,14 @@ All global tokens can be adjusted in Theme settings. Each homepage module is an 
 - Hero carousel with desktop/mobile media, accessible controls, autoplay opt-in, and reduced-motion handling.
 - Category path cards, collection tabs, product cards, editorial split, image-with-text, FAQ/contact, product gallery, collection grid, cart, and standard page.
 
+## Product system
+
+The product template contains independent sections for the purchase area, highlights, media story, full description, use cases, specifications, comparison, testimonials, FAQ, and product recommendations. Merchants can reorder or remove each section in Theme Editor.
+
+The purchase column is a reorderable block stack with vendor, title, rating, price, SKU, description, variant picker, inventory state, quantity, buy buttons, trust list, collapsible tabs, sharing, app blocks, custom Liquid, dividers, and spacers.
+
+Variant changes update the form ID, price, compare-at price, badge, SKU, availability, inventory treatment, add-to-cart state, URL, and featured media without reloading. The gallery supports images, hosted and external video, 3D models, thumbnails, counters, and optional zoom.
+
 ## Accessibility
 
 Visible `:focus-visible` rings, semantic headings, native `dialog` and `details`, labeled controls, keyboard-operable tabs/carousel controls, and reduced-motion support are included.

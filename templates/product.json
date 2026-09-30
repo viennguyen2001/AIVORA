@@ -1,1 +1,96 @@
-{"sections":{"main":{"type":"main-product","blocks":{"a1":{"type":"assurance","settings":{"title":"Free shipping","text":"On orders over $150"}},"a2":{"type":"assurance","settings":{"title":"30-day returns","text":"Unworn, in the original box"}},"a3":{"type":"assurance","settings":{"title":"12-month warranty","text":"Manufacturing faults"}}},"block_order":["a1","a2","a3"],"settings":{}},"faq":{"type":"faq-contact","settings":{"show_contact":false}}},"order":["main","faq"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {"type":"vendor","settings":{}},
+        "title": {"type":"title","settings":{}},
+        "rating": {"type":"rating","settings":{}},
+        "price": {"type":"price","settings":{"show_tax_notice":true}},
+        "sku": {"type":"sku","settings":{}},
+        "description": {"type":"short_description","settings":{"words":55}},
+        "variant_picker": {"type":"variant_picker","settings":{"picker_type":"buttons"}},
+        "inventory": {"type":"inventory","settings":{"show_quantity":true,"low_threshold":5}},
+        "quantity": {"type":"quantity","settings":{}},
+        "buy_buttons": {"type":"buy_buttons","settings":{"show_dynamic_checkout":false}},
+        "trust": {"type":"icon_list","settings":{"text_1":"Free shipping over $150","subtext_1":"Tracked delivery","text_2":"30-day returns","subtext_2":"Unworn, original box","text_3":"12-month warranty","subtext_3":"Manufacturing faults"}},
+        "shipping": {"type":"collapsible_tab","settings":{"heading":"Shipping & returns","content":"<p>Ships with tracking. Returns accepted within 30 days.</p>","open_by_default":false}},
+        "care": {"type":"collapsible_tab","settings":{"heading":"Care & warranty","content":"<p>Wipe with a soft cloth, keep charging ports dry and store in the supplied case.</p>","open_by_default":false}},
+        "share": {"type":"share","settings":{"label":"Share this product"}}
+      },
+      "block_order": ["vendor","title","rating","price","sku","description","variant_picker","inventory","quantity","buy_buttons","trust","shipping","care","share"],
+      "settings": {"gallery_width":"large","media_fit":"contain","enable_zoom":true}
+    },
+    "highlights": {
+      "type":"product-highlights",
+      "blocks": {
+        "h1":{"type":"highlight","settings":{"kicker":"01","heading":"Eye-level camera","text":"Capture photos and video from your natural point of view."}},
+        "h2":{"type":"highlight","settings":{"kicker":"02","heading":"Open-ear audio","text":"Hear calls and music while staying aware of your surroundings."}},
+        "h3":{"type":"highlight","settings":{"kicker":"03","heading":"Voice assistant","text":"Ask questions and control essentials without reaching for a phone."}},
+        "h4":{"type":"highlight","settings":{"kicker":"04","heading":"Real-time translation","text":"Translate conversations through the companion app."}}
+      },
+      "block_order":["h1","h2","h3","h4"],
+      "settings":{"columns":"4","surface":"canvas"}
+    },
+    "capture_story":{"type":"product-media-story","settings":{"eyebrow":"Capture","heading":"Shot from where you were standing.","text":"<p>Record the moment from your own point of view without holding up a phone or mounting a camera.</p>","layout":"media_first","autoplay":false}},
+    "description":{"type":"product-description","settings":{"eyebrow":"The full story","heading":"Product details"}},
+    "use_cases": {
+      "type":"product-use-cases",
+      "blocks": {
+        "u1":{"type":"case","settings":{"eyebrow":"Everyday","heading":"Keep your phone away","text":"Take calls, hear directions and capture a quick moment without stopping."}},
+        "u2":{"type":"case","settings":{"eyebrow":"Travel","heading":"Understand more","text":"Use translation and quick answers while staying present."}},
+        "u3":{"type":"case","settings":{"eyebrow":"Movement","heading":"Hands stay where they belong","text":"Record from eye level while you ride, run or explore."}}
+      },
+      "block_order":["u1","u2","u3"],
+      "settings":{}
+    },
+    "specifications": {
+      "type":"product-specifications",
+      "blocks": {
+        "s1":{"type":"spec","settings":{"group":"Camera","label":"Resolution","value":"8MP"}},
+        "s2":{"type":"spec","settings":{"group":"Camera","label":"Video","value":"1080p / 30fps"}},
+        "s3":{"type":"spec","settings":{"group":"Audio","label":"Speakers","value":"Open-ear stereo"}},
+        "s4":{"type":"spec","settings":{"group":"Audio","label":"Microphones","value":"Dual ENC"}},
+        "s5":{"type":"spec","settings":{"group":"Battery","label":"Charging","value":"USB-C"}},
+        "s6":{"type":"spec","settings":{"group":"Durability","label":"Water resistance","value":"Check model rating"}},
+        "s7":{"type":"spec","settings":{"group":"Compatibility","label":"Mobile app","value":"iOS and Android"}}
+      },
+      "block_order":["s1","s2","s3","s4","s5","s6","s7"],
+      "settings":{}
+    },
+    "comparison": {
+      "type":"product-comparison",
+      "blocks": {
+        "c1":{"type":"row","settings":{"feature":"Best for","primary":"Commute and travel","secondary":"Ride, run and climb"}},
+        "c2":{"type":"row","settings":{"feature":"Lens","primary":"Clear or photochromic","secondary":"Polarised UV400"}},
+        "c3":{"type":"row","settings":{"feature":"Fit","primary":"Lightweight everyday","secondary":"Wraparound active"}},
+        "c4":{"type":"row","settings":{"feature":"Camera position","primary":"Eye level","secondary":"Eye level"}}
+      },
+      "block_order":["c1","c2","c3","c4"],
+      "settings":{}
+    },
+    "testimonials": {
+      "type":"product-testimonials",
+      "blocks": {
+        "t1":{"type":"testimonial","settings":{"quote":"Light enough for every day, and the camera feels natural because it records exactly where I am looking.","author":"Verified customer","detail":"Purchased this product"}},
+        "t2":{"type":"testimonial","settings":{"quote":"The open-ear speakers are the feature I use most. I can hear navigation and still hear traffic.","author":"Verified customer","detail":"Purchased this product"}},
+        "t3":{"type":"testimonial","settings":{"quote":"Setup was simple and transferring clips to my phone was much faster than I expected.","author":"Verified customer","detail":"Purchased this product"}}
+      },
+      "block_order":["t1","t2","t3"],
+      "settings":{}
+    },
+    "faq": {
+      "type":"faq-contact",
+      "blocks": {
+        "q1":{"type":"question","settings":{"question":"Will people know when I am recording?","answer":"<p>Yes. A visible indicator light comes on whenever the camera is recording.</p>"}},
+        "q2":{"type":"question","settings":{"question":"Can I use prescription lenses?","answer":"<p>Many everyday frames can accept lenses cut by an optician. Confirm the measurements before ordering.</p>"}},
+        "q3":{"type":"question","settings":{"question":"How do files reach my phone?","answer":"<p>Use the companion app and the connection method specified for your model.</p>"}},
+        "q4":{"type":"question","settings":{"question":"What does the warranty cover?","answer":"<p>The 12-month warranty covers manufacturing faults in the electronics and frame.</p>"}}
+      },
+      "block_order":["q1","q2","q3","q4"],
+      "settings":{"eyebrow":"Need to know","heading":"Product questions","show_contact":false}
+    },
+    "recommendations":{"type":"product-recommendations","settings":{"eyebrow":"Keep exploring","heading":"More in this range","intent":"related","products_to_show":4,"show_vendor":false}}
+  },
+  "order": ["main","highlights","capture_story","description","use_cases","specifications","comparison","testimonials","faq","recommendations"]
+}

@@ -1,0 +1,13 @@
+<section class="collection-main section">
+  <div class="page-width">
+    <header class="collection-main__header"><div><div class="eyebrow muted">{{ collection.products_count }} {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}</div><h1>{{ collection.title }}</h1></div>{% if collection.description != blank %}<div class="rte muted">{{ collection.description }}</div>{% endif %}</header>
+    <div class="collection-main__toolbar"><span>{{ collection.products_count }} {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}</span><form><label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label><select name="sort_by" id="SortBy" onchange="this.form.submit()">{% assign sort_by = collection.sort_by | default: collection.default_sort_by %}{% for option in collection.sort_options %}<option value="{{ option.value }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name }}</option>{% endfor %}</select></form></div>
+    {% paginate collection.products by section.settings.products_per_page %}<div class="product-grid">{% for product in collection.products %}{% render 'product-card', product: product, show_vendor: section.settings.show_vendor %}{% endfor %}</div>{% if paginate.pages > 1 %}<div class="pagination">{{ paginate | default_pagination }}</div>{% endif %}{% endpaginate %}
+  </div>
+</section>
+{% stylesheet %}
+.collection-main__header{display:grid;grid-template-columns:.75fr 1.25fr;gap:8%;padding:38px 0 60px}.collection-main__header h1{font-size:clamp(3rem,6vw,6.8rem);margin:14px 0 0}.collection-main__toolbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0 24px;border-top:1px solid var(--color-line)}.collection-main__toolbar form{display:flex;align-items:center;gap:12px}.collection-main__toolbar select{border:1px solid var(--color-line);border-radius:999px;padding:9px 14px;background:transparent}.pagination{text-align:center;margin-top:48px}.pagination .page,.pagination .next,.pagination .prev{padding:8px}@media(max-width:749px){.collection-main__header{grid-template-columns:1fr;gap:22px;padding-bottom:36px}.collection-main__header h1{font-size:3.2rem}.collection-main__toolbar label{display:none}}
+{% endstylesheet %}
+{% schema %}
+{"name":"t:sections.main_collection.name","settings":[{"type":"range","id":"products_per_page","min":8,"max":24,"step":4,"label":"t:sections.main_collection.products_per_page","default":16},{"type":"checkbox","id":"show_vendor","label":"t:sections.featured_collection.show_vendor","default":false}]}
+{% endschema %}

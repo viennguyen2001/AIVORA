@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_ink }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <title>{{ page_title }}{% if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.pagination.page' | t: number: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+    {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+    <style>
+      :root {
+        --color-canvas: {{ settings.color_canvas }};
+        --color-surface: {{ settings.color_surface }};
+        --color-ink: {{ settings.color_ink }};
+        --color-muted: {{ settings.color_muted }};
+        --color-line: {{ settings.color_line }};
+        --color-accent: {{ settings.color_accent }};
+        --color-on-accent: {{ settings.color_on_accent }};
+        --page-width: {{ settings.page_width }}px;
+        --section-space: {{ settings.section_spacing }}px;
+        --radius-card: {{ settings.radius_card }}px;
+        --radius-control: {{ settings.radius_control }}px;
+      }
+    </style>
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#MainContent">{{ 'accessibility.skip_to_text' | t }}</a>
+    {% sections 'header-group' %}
+    <main id="MainContent" tabindex="-1">{{ content_for_layout }}</main>
+    {% sections 'footer-group' %}
+  </body>
+</html>

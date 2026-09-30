@@ -1,0 +1,24 @@
+<header class="site-header">
+  <div class="site-header__inner page-width">
+    <button class="icon-button mobile-menu-button" type="button" data-menu-open aria-label="{{ 'accessibility.open_menu' | t }}">{% render 'icon', name: 'menu' %}</button>
+    <a class="site-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      {% if settings.logo %}{{ settings.logo | image_url: width: settings.logo_width | image_tag: width: settings.logo_width, alt: shop.name }}{% else %}<img src="{{ 'brand-logo.png' | asset_url }}" width="100" height="40" alt="{{ shop.name }}">{% endif %}
+    </a>
+    <nav class="site-header__nav" aria-label="{{ 'sections.header.navigation' | t }}">
+      {% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
+    </nav>
+    <div class="site-header__actions">
+      <a class="icon-button search-button" href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}">{% render 'icon', name: 'search' %}</a>
+      <a class="icon-button" href="{{ routes.cart_url }}" aria-label="{{ 'templates.cart.cart' | t }}">{% render 'icon', name: 'bag' %}{% if cart.item_count > 0 %}<span class="cart-count">{{ cart.item_count }}</span>{% endif %}</a>
+    </div>
+  </div>
+</header>
+<dialog class="mobile-menu" id="MobileMenu">
+  <div class="mobile-menu__inner">
+    <button class="icon-button" type="button" data-menu-close aria-label="{{ 'accessibility.close' | t }}">{% render 'icon', name: 'close' %}</button>
+    <nav>{% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}</nav>
+  </div>
+</dialog>
+{% schema %}
+{"name":"t:sections.header.name","settings":[{"type":"link_list","id":"menu","label":"t:sections.header.menu","default":"main-menu"}]}
+{% endschema %}

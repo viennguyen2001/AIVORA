@@ -1,0 +1,22 @@
+{% doc %}
+Renders a product card for grids and featured collections.
+@param {product} product - Product to render.
+@param {boolean} [show_vendor] - Show product vendor.
+{% enddoc %}
+<a class="product-card" href="{{ product.url }}">
+  <div class="product-card__media">
+    {% if product.featured_image %}
+      {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '320, 480, 640, 900', sizes: '(max-width: 749px) 50vw, 25vw', alt: product.featured_image.alt }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </div>
+  <div class="product-card__body">
+    {% if show_vendor %}<div class="eyebrow muted">{{ product.vendor }}</div>{% endif %}
+    <div class="product-card__title">{{ product.title }}</div>
+    <div class="product-card__price">
+      {% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}
+      {{ product.price | money }}
+    </div>
+  </div>
+</a>

@@ -1,0 +1,12 @@
+<section class="editorial-split section">
+  <div class="page-width editorial-split__grid">
+    <div><h2>{{ section.settings.heading }}</h2>{% if section.settings.button_label != blank %}<a class="button button--secondary" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>{% endif %}</div>
+    <div class="editorial-split__copy">{{ section.settings.text }}{% if section.settings.pullquote != blank %}<p class="editorial-split__quote">{{ section.settings.pullquote }}</p>{% endif %}</div>
+  </div>
+</section>
+{% stylesheet %}
+.editorial-split__grid{display:grid;grid-template-columns:minmax(0,42fr) minmax(0,53fr);gap:5%;align-items:start}.editorial-split h2{font-size:clamp(2.8rem,5.6vw,6.5rem);line-height:.96;margin:0 0 32px;max-width:10ch}.editorial-split__copy{padding-top:8px;color:var(--color-muted);font-size:clamp(1.1rem,1.8vw,1.55rem);max-width:48ch}.editorial-split__quote{color:var(--color-ink);font-weight:650;margin-top:52px}@media(max-width:749px){.editorial-split__grid{grid-template-columns:1fr;gap:30px}.editorial-split h2{font-size:3rem}.editorial-split__copy{font-size:1rem}.editorial-split__quote{margin-top:28px}}
+{% endstylesheet %}
+{% schema %}
+{"name":"t:sections.editorial.name","settings":[{"type":"text","id":"heading","label":"t:labels.heading","default":"The camera should go where your eyes already are"},{"type":"richtext","id":"text","label":"t:labels.text","default":"<p>We build AI eyewear for people who would rather look at the thing than at a phone held up in front of it. A camera, translator and voice assistant, in a frame you would wear anyway.</p>"},{"type":"textarea","id":"pullquote","label":"t:sections.editorial.pullquote","default":"Different frames, one idea: your hands stay free and the moment stays yours."},{"type":"text","id":"button_label","label":"t:labels.button_label","default":"Our story"},{"type":"url","id":"button_link","label":"t:labels.button_link"}],"presets":[{"name":"t:sections.editorial.name"}]}
+{% endschema %}

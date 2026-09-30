@@ -1,0 +1,26 @@
+<div class="footer-benefits">
+  {% for block in section.blocks %}
+    {% if block.type == 'benefit' %}<div class="footer-benefit" {{ block.shopify_attributes }}><strong>{{ block.settings.title }}</strong><span>{{ block.settings.text }}</span></div>{% endif %}
+  {% endfor %}
+</div>
+<footer class="site-footer">
+  <div class="page-width">
+    <div class="site-footer__grid">
+      <div>
+        <h2>{{ shop.name }}</h2>
+        <div class="rte muted">{{ section.settings.business_details }}</div>
+      </div>
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}<div {{ block.shopify_attributes }}><h3>{{ block.settings.heading }}</h3><ul>{% for link in block.settings.menu.links %}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}</ul></div>{% endif %}
+      {% endfor %}
+      <div>
+        <h3>{{ section.settings.newsletter_heading }}</h3>
+        {% form 'customer', class: 'newsletter' %}<input type="hidden" name="contact[tags]" value="newsletter"><input type="email" name="contact[email]" autocomplete="email" placeholder="{{ 'newsletter.label' | t }}" aria-label="{{ 'newsletter.label' | t }}" required><button type="submit">{{ 'newsletter.button_label' | t }}</button>{% endform %}
+      </div>
+    </div>
+    <div class="site-footer__bottom">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.footer.powered' | t }}</div>
+  </div>
+</footer>
+{% schema %}
+{"name":"t:sections.footer.name","max_blocks":8,"settings":[{"type":"richtext","id":"business_details","label":"t:sections.footer.business_details","default":"<p>Built for people who would rather look at the world than a phone.</p>"},{"type":"text","id":"newsletter_heading","label":"t:sections.footer.newsletter_heading","default":"News from us"}],"blocks":[{"type":"benefit","name":"t:sections.footer.benefit","settings":[{"type":"text","id":"title","label":"t:labels.heading","default":"Customer service"},{"type":"text","id":"text","label":"t:labels.text","default":"Real people, replies within a day"}]},{"type":"menu","name":"t:sections.footer.menu_block","settings":[{"type":"text","id":"heading","label":"t:labels.heading","default":"Shop"},{"type":"link_list","id":"menu","label":"t:labels.menu","default":"footer"}]}],"presets":[{"name":"t:sections.footer.name","blocks":[{"type":"benefit"},{"type":"benefit"},{"type":"benefit"},{"type":"benefit"},{"type":"menu"},{"type":"menu"}]}]}
+{% endschema %}

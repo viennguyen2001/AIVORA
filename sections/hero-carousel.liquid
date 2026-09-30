@@ -1,0 +1,60 @@
+<section class="hero" id="Hero-{{ section.id }}" data-carousel data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed | times: 1000 }}">
+  <div class="hero__viewport">
+    <div class="hero__track" data-carousel-track>
+      {% for block in section.blocks %}
+        <article class="hero__slide{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <picture class="hero__media">
+            {% if block.settings.mobile_image %}<source media="(max-width: 749px)" srcset="{{ block.settings.mobile_image | image_url: width: 1200 }}">{% endif %}
+            {% if block.settings.image %}{{ block.settings.image | image_url: width: 2400 | image_tag: loading: 'eager', widths: '750, 1200, 1600, 2000, 2400', sizes: '100vw', alt: block.settings.heading }}{% elsif forloop.first %}<img src="{{ 'hero-glasses.png' | asset_url }}" alt="{{ block.settings.heading | escape }}" width="2400" height="1500" fetchpriority="high">{% else %}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}{% endif %}
+          </picture>
+          <span class="hero__shade"></span>
+          <div class="hero__content page-width">
+            <div class="hero__copy">
+              {% if block.settings.eyebrow != blank %}<div class="eyebrow">{{ block.settings.eyebrow }}</div>{% endif %}
+              {% if forloop.first %}<h1>{{ block.settings.heading }}</h1>{% else %}<h2>{{ block.settings.heading }}</h2>{% endif %}
+              {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+              {% if block.settings.button_label != blank %}<a class="button button--light" href="{{ block.settings.button_link }}">{{ block.settings.button_label }}</a>{% endif %}
+            </div>
+            {% if section.blocks.size > 1 %}
+              <div class="hero__nav"><button type="button" data-carousel-prev aria-label="{{ 'accessibility.previous_slide' | t }}">&larr;</button><div class="hero__dots">{% for dot in section.blocks %}<button type="button" data-carousel-dot="{{ forloop.index0 }}" class="{% if forloop.first %}is-active{% endif %}" aria-label="{{ 'accessibility.load_slide' | t: number: forloop.index }}"></button>{% endfor %}</div><button type="button" data-carousel-next aria-label="{{ 'accessibility.next_slide' | t }}">&rarr;</button></div>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% stylesheet %}
+.hero{padding:6px 0 0}.hero__viewport{overflow:hidden}.hero__track{display:flex;gap:30px;transition:transform .6s cubic-bezier(.4,0,.2,1)}.hero__slide{position:relative;flex:0 0 calc(100% - 120px);height:78vh;min-height:590px;max-height:920px;border-radius:24px;overflow:hidden;background:#0b0d12;color:#fff;opacity:.45;transition:opacity .6s}.hero__slide:first-child{margin-left:60px}.hero__slide.is-active{opacity:1}.hero__media,.hero__media img,.hero__media svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero__shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.62),transparent 58%),linear-gradient(to right,rgba(0,0,0,.55),transparent 62%)}.hero__content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-top:60px;padding-bottom:34px}.hero__copy{max-width:610px}.hero__copy h1,.hero__copy h2{font-size:clamp(2.5rem,4.2vw,4.8rem);margin:14px 0 16px}.hero__copy p{max-width:48ch;font-size:var(--text-lg);margin-bottom:26px;text-wrap:pretty}.hero__nav{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.28)}.hero__nav button{color:#fff;border:0;background:transparent}.hero__nav>button{font-size:1.8rem}.hero__dots{display:flex;gap:18px}.hero__dots button{position:relative;width:7px;height:7px;padding:0;border-radius:8px;background:rgba(255,255,255,.42);transition:width .3s}.hero__dots button::after{content:"";position:absolute;inset:-10px}.hero__dots button.is-active{width:24px;background:#fff}
+@media(max-width:749px){.hero__track{gap:10px}.hero__slide{flex-basis:calc(100% - 32px);height:calc(100svh - 126px);min-height:570px;border-radius:18px}.hero__slide:first-child{margin-left:16px}.hero__content{width:calc(100% - 40px);padding-bottom:20px}.hero__copy h1,.hero__copy h2{font-size:2.6rem}.hero__copy p{font-size:.95rem}.hero__copy .button{width:100%}.hero__nav{margin-top:16px}}
+{% endstylesheet %}
+{% javascript %}
+(() => {
+  const init = (root) => {
+    if (root.dataset.ready) return;
+    root.dataset.ready = 'true';
+    const track = root.querySelector('[data-carousel-track]');
+    const slides = [...root.querySelectorAll('[data-slide]')];
+    const dots = [...root.querySelectorAll('[data-carousel-dot]')];
+    let index = 0;
+    const paint = () => {
+      const slide = slides[index];
+      const gap = innerWidth < 750 ? 10 : 30;
+      const lead = innerWidth < 750 ? 16 : 60;
+      track.style.transform = `translateX(${-index * (slide.offsetWidth + gap)}px)`;
+      slides.forEach((item, i) => item.classList.toggle('is-active', i === index));
+      dots.forEach((item, i) => item.classList.toggle('is-active', i === index));
+    };
+    root.querySelector('[data-carousel-prev]')?.addEventListener('click', () => { index = (index - 1 + slides.length) % slides.length; paint(); });
+    root.querySelector('[data-carousel-next]')?.addEventListener('click', () => { index = (index + 1) % slides.length; paint(); });
+    dots.forEach((dot) => dot.addEventListener('click', () => { index = Number(dot.dataset.carouselDot); paint(); }));
+    addEventListener('resize', paint, { passive: true });
+    if (root.dataset.autoplay === 'true' && !matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { index = (index + 1) % slides.length; paint(); }, Number(root.dataset.speed));
+  };
+  document.querySelectorAll('[data-carousel]').forEach(init);
+  document.addEventListener('theme:refresh', () => document.querySelectorAll('[data-carousel]').forEach(init));
+})();
+{% endjavascript %}
+{% schema %}
+{"name":"t:sections.hero.name","settings":[{"type":"checkbox","id":"autoplay","label":"t:sections.hero.autoplay","default":false},{"type":"range","id":"speed","min":3,"max":9,"step":1,"unit":"s","label":"t:sections.hero.speed","default":5}],"blocks":[{"type":"slide","name":"t:sections.hero.slide","settings":[{"type":"image_picker","id":"image","label":"t:labels.image"},{"type":"image_picker","id":"mobile_image","label":"t:labels.mobile_image"},{"type":"text","id":"eyebrow","label":"t:labels.eyebrow","default":"Vira Roam"},{"type":"text","id":"heading","label":"t:labels.heading","default":"Look. Ask. Capture."},{"type":"textarea","id":"text","label":"t:labels.text","default":"An 8MP camera, open-ear audio and a voice assistant you wake with your voice."},{"type":"text","id":"button_label","label":"t:labels.button_label","default":"Shop the range"},{"type":"url","id":"button_link","label":"t:labels.button_link"}]}],"max_blocks":6,"presets":[{"name":"t:sections.hero.name","blocks":[{"type":"slide"},{"type":"slide","settings":{"eyebrow":"Hands-free","heading":"Ask what you are looking at.","text":"Open-ear audio and directional microphones keep you connected to the world around you.","button_label":"Discover the assistant"}}]}]}
+{% endschema %}

@@ -1,0 +1,34 @@
+{
+  "accessibility": {"skip_to_text":"Skip to content","open_menu":"Open menu","close":"Close","previous_slide":"Previous slide","next_slide":"Next slide","load_slide":"Load slide {{ number }}"},
+  "general": {"pagination":{"page":"Page {{ number }}"},"search":{"search":"Search"},"continue_shopping":"Continue shopping"},
+  "newsletter": {"label":"Email address","button_label":"Subscribe"},
+  "onboarding": {"product_title":"Example product"},
+  "products": {"product":{"choose_options":"Choose options","quantity":{"label":"Quantity"},"add_to_cart":"Add to cart","sold_out":"Sold out"},"facets":{"product_count_simple":"products","sort_by_label":"Sort by"}},
+  "templates": {"cart":{"cart":"Cart"},"contact":{"form":{"name":"Name","email":"Email","comment":"Message","send":"Send message"}}},
+  "sections": {
+    "announcement":{"name":"Announcement bar","label":"Announcement"},
+    "header":{"name":"Header","navigation":"Main navigation","menu":"Menu"},
+    "footer":{"name":"Footer","powered":"Powered by Shopify","business_details":"Business details","newsletter_heading":"Newsletter heading","benefit":"Service benefit","menu_block":"Menu column"},
+    "hero":{"name":"Hero carousel","autoplay":"Auto-rotate slides","speed":"Change slides every","slide":"Slide"},
+    "paths":{"name":"Category paths","category":"Category card","fallback":"Fallback image","feature_1":"Feature one","feature_2":"Feature two"},
+    "benefits":{"name":"Benefit strip","benefit":"Benefit"},
+    "collection_tabs":{"name":"Collection tabs","tab":"Collection tab"},
+    "featured_collection":{"products_to_show":"Products to show","show_vendor":"Show vendor","view_all":"View all"},
+    "editorial":{"name":"Editorial split","pullquote":"Pull quote"},
+    "image_text":{"name":"Image with text"},
+    "faq":{"name":"FAQ and contact","show_contact":"Show contact form","contact_heading":"Contact heading","contact_text":"Contact text","question":"Question","question_label":"Question","answer":"Answer"},
+    "main_product":{"name":"Main product","dynamic_checkout":"Show dynamic checkout","assurance":"Assurance"},
+    "main_collection":{"name":"Main collection","products_per_page":"Products per page"},
+    "main_page":{"name":"Main page"},
+    "main_cart":{"name":"Main cart"},
+    "cart":{"empty":"Your cart is empty.","remove_title":"Remove {{ title }}","subtotal":"Subtotal","update":"Update cart","checkout":"Checkout"}
+  },
+  "labels": {"text":"Text","link":"Link","heading":"Heading","image":"Image","mobile_image":"Mobile image","eyebrow":"Eyebrow","button_label":"Button label","button_link":"Button link","menu":"Menu","label":"Label","collection":"Collection","layout":"Layout"},
+  "options": {"image_first":"Image first","text_first":"Text first"},
+  "settings_schema": {
+    "brand":{"name":"Brand","logo":"Logo","logo_width":"Logo width"},
+    "colors":{"name":"Design system · colors","canvas":"Canvas","surface":"Surface","ink":"Primary text","muted":"Secondary text","line":"Borders","accent":"Accent","on_accent":"Text on accent"},
+    "layout":{"name":"Design system · layout","page_width":"Page width","section_spacing":"Section spacing","card_radius":"Card radius","control_radius":"Control radius"},
+    "social":{"name":"Social media"}
+  }
+}
